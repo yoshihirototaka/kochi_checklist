@@ -2,132 +2,206 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8" />
-<title>9/26–9/30 高知旅行 送付品・携行品チェックリスト（家族）</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>9/26–9/30 高知旅行 送付品・携行品チェックリスト（家族・改良版 v5）</title>
 <style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP", sans-serif; line-height: 1.6; }
-  h1, h2, h3 { margin-top: 1.2em; }
-  details { margin: 0.6em 0; }
-  summary { font-weight: 600; cursor: pointer; }
-  .hint { color: #555; font-size: 0.9em; }
-  .qty { color: #333; font-weight: 600; }
-  .muted { color: #777; }
-  .sep { border-top: 1px solid #ddd; margin: 1em 0; }
-  ul { list-style: none; padding-left: 0; }
-  li { margin: 0.2em 0; }
-  input[type="checkbox"] { margin-right: 0.5em; }
-  .ignore { background: #fff8dc; padding: 0.75em; border: 1px dashed #e0c97f; }
+  :root{
+    --bg:#fafafa; --card:#ffffff; --ink:#1f2937; --muted:#6b7280; --brand:#2563eb;
+    --line:#e5e7eb; --accent:#f59e0b; --ok:#16a34a;
+  }
+  *{box-sizing:border-box}
+  html,body{background:var(--bg); color:var(--ink); margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans JP",sans-serif; line-height:1.65;}
+  .container{max-width:980px; margin:0 auto; padding:16px;}
+  h1{font-size:clamp(20px,3vw,28px); margin:12px 0 4px}
+  h2{font-size:clamp(18px,2.4vw,22px); margin:18px 0 8px}
+  h3{font-size:clamp(16px,2vw,18px); margin:14px 0 6px}
+  p.hint{color:var(--muted); margin:0 0 8px}
+  .toolbar{
+    position:sticky; top:0; z-index:10; backdrop-filter:blur(6px);
+    background:color-mix(in sRGB, var(--bg) 85%, #fff 15%);
+    border-bottom:1px solid var(--line); padding:8px 0;
+  }
+  .toolbar-inner{max-width:980px; margin:0 auto; display:flex; align-items:center; gap:10px; padding:0 16px;}
+  .btn{appearance:none; border:1px solid var(--line); background:#fff; padding:8px 12px; border-radius:10px; cursor:pointer; font-weight:600;}
+  .btn:hover{border-color:var(--brand)}
+  .btn-danger{border-color:#f87171; color:#b91c1c}
+  .progress{margin-left:auto; font-size:14px; color:var(--muted)}
+  .cards{display:grid; grid-template-columns:1fr; gap:14px}
+  @media(min-width:880px){ .cards{grid-template-columns:1fr 1fr} }
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px; box-shadow:0 2px 6px rgba(0,0,0,.04);}
+  .card.full{grid-column:1 / -1}
+  ul{list-style:none; padding-left:0; margin:0}
+  li{display:flex; align-items:flex-start; gap:8px; padding:6px 0; border-bottom:1px dashed #f3f4f6}
+  li:last-child{border-bottom:none}
+  input[type="checkbox"]{transform:scale(1.15); margin-top:3px}
+  label{display:flex; gap:8px; align-items:flex-start; flex:1}
+  .qty{display:inline-block; font-weight:700; color:#111827; background:#fef3c7; border:1px solid #fde68a; padding:0 8px; border-radius:999px; margin-left:6px}
+  .muted{color:var(--muted)}
+  details{margin:8px 0}
+  summary{font-weight:700; cursor:pointer}
+  .ignore{background:#fff8e1; border:1px dashed #f0c36d; border-radius:12px; padding:12px}
+  .pill{display:inline-block; background:#eef2ff; border:1px solid #e0e7ff; border-radius:999px; padding:2px 8px; font-size:12px; margin-left:6px}
+  .foot{color:var(--muted); font-size:13px; margin-top:12px}
 </style>
 </head>
 <body>
+  <div class="toolbar">
+    <div class="toolbar-inner">
+      <button id="clearAll" class="btn btn-danger" title="すべてのチェックを外します">全て未選択にする</button>
+      <div class="progress">完了 <span id="done">0</span> / <span id="total">0</span></div>
+    </div>
+  </div>
 
-<h1>9/26–9/30 高知旅行：送付品・携行品チェックリスト</h1>
-<p class="hint">
-方針：毎日必要＆緊急品＝手荷物／衣服類は各宿へ送付（往復宅急便・前日着）／洗濯物は各宿から自宅へ返送。<br>
-子ども：3歳（オムツ未完了）。日中おむつは <span class="qty">6枚/日</span> を携行、夜用は箱配備。
-</p>
+  <div class="container">
+    <h1>9/26–9/30 高知旅行：送付品・携行品チェックリスト（改良版 v5）</h1>
+    <p class="hint">
+      方針：毎日必要＆緊急品＝手荷物／衣類は各宿へ送付（往復宅急便・前日着）／洗濯物は各宿から自宅へ返送。<br>
+      子ども：3歳（オムツ未完了）。<b>日中おむつは 6枚/日を携行</b>。各箱には<b>補充用の昼おむつ</b>を配備。
+    </p>
 
-<div class="sep"></div>
+    <div class="cards">
 
-<h2>デイリー携行（毎朝の持ち出しチェック）</h2>
-<ul>
-  <li><label><input type="checkbox">日中おむつ <span class="qty">6枚/日</span></label> <span class="muted">（当日分。夜用は各箱にあり）</span></li>
-  <li><label><input type="checkbox">おしりふき（携行）</label></li>
-  <li><label><input type="checkbox">防臭袋 <span class="qty">5枚/日</span></label></li>
-  <li><label><input type="checkbox">おむつ替え用使い捨てシート <span class="qty">2枚/日</span></label></li>
-  <li><label><input type="checkbox">子ども緊急用寝間着 1</label></li>
-  <li><label><input type="checkbox">子ども上着（薄手） 1</label></li>
-  <li><label><input type="checkbox">日傘 2本</label></li>
-  <li><label><input type="checkbox">子どもレインコート 1</label></li>
-  <li><label><input type="checkbox">ヒップシート</label></li>
-  <li><label><input type="checkbox">キッズトラベル mini</label></li>
-  <li><label><input type="checkbox">携帯電話ホルダー（車載用）</label></li>
-  <li><label><input type="checkbox">CPAP（ResMed AirMini＋P10、電源、ホース、延長コード）</label></li>
-  <li><label><input type="checkbox">ヘルスケア最小セット（常備薬／健康保険証／子ども医療証／お薬手帳）</label></li>
-  <li><label><input type="checkbox">トイレタリー最小（大人歯ブラシ・歯磨き粉・子ども歯ブラシ・髭剃り・シェービングフォーム）</label></li>
-  <li><label><input type="checkbox">スマホ充電器 ×1／USBケーブル（必要端子）</label></li>
-  <li><label><input type="checkbox">モバイルバッテリー（～10,000mAh）</label></li>
-  <li><label><input type="checkbox">大人Tシャツ 各1／下着 各1／靴下 各1（当日用）</label></li>
-  <li><label><input type="checkbox">子ども着替え：トップス2／ボトムス2／靴下2</label></li>
-</ul>
+      <div class="card full">
+        <h2>デイリー携行（毎朝の持ち出しチェック）<span class="pill">毎日</span></h2>
+        <ul>
+          <li><label><input type="checkbox">日中おむつ <span class="qty">6枚/日</span> <span class="muted">（当日分。翌朝は各箱から補充）</span></label></li>
+          <li><label><input type="checkbox">おしりふき（携行）</label></li>
+          <li><label><input type="checkbox">防臭袋 <span class="qty">5枚/日</span></label></li>
+          <li><label><input type="checkbox">おむつ替え用使い捨てシート <span class="qty">2枚/日</span></label></li>
+          <li><label><input type="checkbox">子ども緊急用寝間着 1</label></li>
+          <li><label><input type="checkbox">子ども上着（薄手） 1</label></li>
+          <li><label><input type="checkbox">日傘 2本</label></li>
+          <li><label><input type="checkbox">子どもレインコート 1</label></li>
+          <li><label><input type="checkbox">ヒップシート</label></li>
+          <li><label><input type="checkbox">キッズトラベル mini</label></li>
+          <li><label><input type="checkbox">携帯電話ホルダー（車載用）</label></li>
+          <li><label><input type="checkbox">CPAP（ResMed AirMini＋P10、電源、ホース、延長コード）</label></li>
+          <li><label><input type="checkbox">ヘルスケア最小セット（常備薬／健康保険証／子ども医療証／お薬手帳）</label></li>
+          <li><label><input type="checkbox">トイレタリー最小（大人歯ブラシ・歯磨き粉・子ども歯ブラシ・髭剃り・シェービングフォーム）</label></li>
+          <li><label><input type="checkbox">スマホ充電器 ×1／USBケーブル（必要端子）</label></li>
+          <li><label><input type="checkbox">モバイルバッテリー（～10,000mAh）</label></li>
+          <li><label><input type="checkbox">大人Tシャツ 各1／下着 各1／靴下 各1（当日用）</label></li>
+          <li><label><input type="checkbox">子ども着替え：トップス2／ボトムス2／靴下2</label></li>
+        </ul>
+      </div>
 
-<div class="sep"></div>
+      <div class="card">
+        <h2>送付：神戸（1泊）</h2>
+        <ul>
+          <li><label><input type="checkbox">夜用おむつ 1（この夜の分）</label></li>
+          <li><label><input type="checkbox">補充用おむつ（昼） <span class="qty">6</span> <span class="muted">（翌朝に携行分として取り出す）</span></label></li>
+          <li><label><input type="checkbox">防臭袋 5（予備）</label></li>
+          <li><label><input type="checkbox">おむつ替え用使い捨てシート 2</label></li>
+          <li><label><input type="checkbox">洗濯物袋 45L ×2</label></li>
+        </ul>
+        <h3>衣類（神戸箱）</h3>
+        <ul>
+          <li><label><input type="checkbox">大人Tシャツ 各1</label></li>
+          <li><label><input type="checkbox">大人下着 各1</label></li>
+          <li><label><input type="checkbox">大人靴下 各1</label></li>
+          <li><label><input type="checkbox">子どもトップス 2</label></li>
+          <li><label><input type="checkbox">子どもボトムス 2</label></li>
+          <li><label><input type="checkbox">子ども靴下 2</label></li>
+        </ul>
+      </div>
 
-<h2>送付：神戸（9/26 到着・1泊）</h2>
-<ul>
-  <li><label><input type="checkbox">夜用おむつ 1（この夜の分）</label></li>
-  <li><label><input type="checkbox">防臭袋 5（予備・当日携行分とは別）</label></li>
-  <li><label><input type="checkbox">おむつ替え用使い捨てシート 2</label></li>
-  <li><label><input type="checkbox">洗濯物袋 45L ×2</label></li>
-</ul>
-<h3>衣類（神戸箱）</h3>
-<ul>
-  <li><label><input type="checkbox">大人Tシャツ 各2</label></li>
-  <li><label><input type="checkbox">大人下着 各2</label></li>
-  <li><label><input type="checkbox">大人靴下 各2</label></li>
-  <li><label><input type="checkbox">子どもトップス 2</label></li>
-  <li><label><input type="checkbox">子どもボトムス 2</label></li>
-  <li><label><input type="checkbox">子ども靴下 2</label></li>
-</ul>
+      <div class="card">
+        <h2>送付：琴平（1泊）</h2>
+        <ul>
+          <li><label><input type="checkbox">夜用おむつ 1（この夜の分）</label></li>
+          <li><label><input type="checkbox">補充用おむつ（昼） <span class="qty">6</span> <span class="muted">（翌朝に携行分として取り出す）</span></label></li>
+          <li><label><input type="checkbox">防臭袋 5</label></li>
+          <li><label><input type="checkbox">おむつ替え用使い捨てシート 2</label></li>
+          <li><label><input type="checkbox">洗濯物袋 45L ×2</label></li>
+        </ul>
+        <h3>衣類（琴平箱）</h3>
+        <ul>
+          <li><label><input type="checkbox">大人Tシャツ 各1</label></li>
+          <li><label><input type="checkbox">大人下着 各1</label></li>
+          <li><label><input type="checkbox">大人靴下 各1</label></li>
+          <li><label><input type="checkbox">子どもトップス 2</label></li>
+          <li><label><input type="checkbox">子どもボトムス 2</label></li>
+          <li><label><input type="checkbox">子ども靴下 2</label></li>
+        </ul>
+      </div>
 
-<div class="sep"></div>
+      <div class="card full">
+        <h2>送付：高知（2泊）</h2>
+        <ul>
+          <li><label><input type="checkbox">夜用おむつ 2（この2夜の分）</label></li>
+          <li><label><input type="checkbox">補充用おむつ（昼） <span class="qty">12</span> <span class="muted">（滞在2日分を朝に取り出す）</span></label></li>
+          <li><label><input type="checkbox">防臭袋 10</label></li>
+          <li><label><input type="checkbox">おしりふき 1パック（補充）</label></li>
+          <li><label><input type="checkbox">おむつ替え用使い捨てシート 4</label></li>
+          <li><label><input type="checkbox">洗濯物袋 45L ×2</label></li>
+        </ul>
+        <h3>衣類（高知箱）</h3>
+        <ul>
+          <li><label><input type="checkbox">大人Tシャツ 各2</label></li>
+          <li><label><input type="checkbox">大人下着 各2</label></li>
+          <li><label><input type="checkbox">大人靴下 各2</label></li>
+          <li><label><input type="checkbox">子どもトップス 4</label></li>
+          <li><label><input type="checkbox">子どもボトムス 4</label></li>
+          <li><label><input type="checkbox">子ども靴下 4</label></li>
+        </ul>
 
-<h2>送付：琴平（9/27 到着・1泊）</h2>
-<ul>
-  <li><label><input type="checkbox">夜用おむつ 1（この夜の分）</label></li>
-  <li><label><input type="checkbox">防臭袋 5</label></li>
-  <li><label><input type="checkbox">おむつ替え用使い捨てシート 2</label></li>
-  <li><label><input type="checkbox">洗濯物袋 45L ×2</label></li>
-</ul>
-<h3>衣類（琴平箱）</h3>
-<ul>
-  <li><label><input type="checkbox">大人Tシャツ 各1</label></li>
-  <li><label><input type="checkbox">大人下着 各1</label></li>
-  <li><label><input type="checkbox">大人靴下 各1</label></li>
-  <li><label><input type="checkbox">子どもトップス 2</label></li>
-  <li><label><input type="checkbox">子どもボトムス 2</label></li>
-  <li><label><input type="checkbox">子ども靴下 2</label></li>
-</ul>
+        <details class="ignore">
+          <summary>〔別枠・不要なら無視可〕プール用品（高知）</summary>
+          <ul>
+            <li><label><input type="checkbox">水遊び用おむつ 4</label></li>
+            <li><label><input type="checkbox">子ども水着一式／ラッシュガード</label></li>
+            <li><label><input type="checkbox">速乾タオル</label></li>
+            <li><label><input type="checkbox">アクアシューズ</label></li>
+          </ul>
+        </details>
+      </div>
 
-<div class="sep"></div>
+      <div class="card full">
+        <h2>全体の配分メモ（最終確認）</h2>
+        <ul>
+          <li>大人：Tシャツ <b>各5</b>（手1／神1／琴1／高2）・下着 <b>各5</b>（手1／神1／琴1／高2）・靴下 <b>各5</b>（手1／神1／琴1／高2）</li>
+          <li>子ども：トップス10（手2／神2／琴2／高4）、ボトムス10（手2／神2／琴2／高4）、靴下10（手2／神2／琴2／高4）</li>
+          <li>昼おむつ：出発日6（手持ち）＋ 神戸6 ＋ 琴平6 ＋ 高知12 ＝ <b>合計30</b></li>
+          <li>夜用おむつ：<b>神1／琴1／高2</b></li>
+          <li>各箱：洗濯物袋 45L ×2（返送はホテルでテープ借用）</li>
+        </ul>
+        <p class="foot">ローカル保存：チェック状態はこの端末のブラウザに保存されます。全て未選択にすると保存もクリアされます。</p>
+      </div>
 
-<h2>送付：高知（9/28 到着・2泊）</h2>
-<ul>
-  <li><label><input type="checkbox">夜用おむつ 2（この2夜の分）</label></li>
-  <li><label><input type="checkbox">防臭袋 10</label></li>
-  <li><label><input type="checkbox">おしりふき 1パック（補充）</label></li>
-  <li><label><input type="checkbox">おむつ替え用使い捨てシート 4</label></li>
-  <li><label><input type="checkbox">洗濯物袋 45L ×2</label></li>
-</ul>
-<h3>衣類（高知箱）</h3>
-<ul>
-  <li><label><input type="checkbox">大人Tシャツ 各2</label></li>
-  <li><label><input type="checkbox">大人下着 各2</label></li>
-  <li><label><input type="checkbox">大人靴下 各2</label></li>
-  <li><label><input type="checkbox">子どもトップス 4</label></li>
-  <li><label><input type="checkbox">子どもボトムス 4</label></li>
-  <li><label><input type="checkbox">子ども靴下 4</label></li>
-</ul>
+    </div><!-- /cards -->
+  </div><!-- /container -->
 
-<details class="ignore">
-  <summary>〔別枠・不要なら無視可〕プール用品（高知）</summary>
-  <ul>
-    <li><label><input type="checkbox">水遊び用おむつ 4</label></li>
-    <li><label><input type="checkbox">子ども水着一式／ラッシュガード</label></li>
-    <li><label><input type="checkbox">速乾タオル</label></li>
-    <li><label><input type="checkbox">アクアシューズ</label></li>
-  </ul>
-</details>
+<script>
+(function(){
+  const KEY = "kochi_checklist_state_v5";
+  const boxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+  const doneEl = document.getElementById('done');
+  const totalEl = document.getElementById('total');
+  totalEl.textContent = boxes.length;
 
-<div class="sep"></div>
+  // restore
+  try{
+    const saved = JSON.parse(localStorage.getItem(KEY) || "[]");
+    saved.forEach(idx => { if(boxes[idx]) boxes[idx].checked = true; });
+  }catch(e){ /* ignore */ }
 
-<h2>全体の配分メモ（最終確認）</h2>
-<ul>
-  <li>大人：Tシャツ 各6（手1／神2／琴1／高2）・下着 各6（手1／神2／琴1／高2）・靴下 各6（手1／神2／琴1／高2）</li>
-  <li>子ども：トップス10（手2／神2／琴2／高4）、ボトムス10（手2／神2／琴2／高4）、靴下10（手2／神2／琴2／高4）</li>
-  <li>夜用おむつ：神1／琴1／高2　※日中6/日は毎朝携行で運用</li>
-  <li>防臭袋：手（当日5）＋神5／琴5／高10、使い捨てシート：手（当日2）＋神2／琴2／高4</li>
-  <li>各箱：洗濯物袋 45L ×2（返送はホテルでテープ借用）</li>
-</ul>
+  function save(){
+    const checked = [];
+    boxes.forEach((b,i)=>{ if(b.checked) checked.push(i); });
+    localStorage.setItem(KEY, JSON.stringify(checked));
+    doneEl.textContent = checked.length;
+  }
+  boxes.forEach(b => b.addEventListener('change', save));
+  save();
 
+  // clear all
+  document.getElementById('clearAll').addEventListener('click', function(){
+    if(!confirm('本当にすべてのチェックを外しますか？')) return;
+    boxes.forEach(b => b.checked = false);
+    localStorage.removeItem(KEY);
+    save();
+  });
+})();
+</script>
 </body>
 </html>
